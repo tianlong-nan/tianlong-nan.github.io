@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -49,21 +48,22 @@
             font-size: large;
         }
         #profile {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: left;
             margin: 2rem;
-            padding-left: 1rem;
+            padding-left: 0rem;
         }
         #profile-pic {
             float: left;
-            width: 30%;
+            /* width: 30%; */
             margin-right: 3rem;
             padding-top: 1rem;
+            padding-left: 50px;
+            padding-right: 50px;
         }
         #bio {
-            float: right;
-            width: 70%;
+            /* float: right;
+            width: 70%; */
             font-size: x-large;
         }
         h2 {
@@ -142,14 +142,18 @@
             width: 100%;
             bottom: 0;
         }
-        .contact p {
+        #bio p {
+            display: block;
+        }
+        #contact p {
             font-family:'Times New Roman', Times, serif;
             white-space: pre;
             font-size: x-large;
             margin: 0px;
             padding-bottom: 10px;
+            /* display: inline; */
         }
-        .contact a {
+        #contact a {
             color: #000;
             text-decoration: underline; 
         }
@@ -204,25 +208,36 @@
     <div id="container">
         <main>
             <section id="profile">
+                <div id="profile-pic">
+                    <img src="profile.jpg" alt="Profile Picture" style="width: 300px; height: auto;">
+                </div>
                 <div id="profile">
-                    <div id="profile-pic">
-                        <img src="./profile.jpg" alt="Profile Picture" style="width: 80%; height: auto;">
-                    </div>
-                    <div id="bio">
+                    
+                    <!-- <div id="bio"> -->
                         <!-- <h2>Tianlong Nan</h2>
                         <h3>PhD Student at Columbia IEOR</h3> -->
-                        <p> Welcome! 
+                        <p id="bio"> 
+                            Welcome! 
                             I'm a third-year PhD student in Operations Research at Columbia University, advised by Prof. <a href="https://www.columbia.edu/~ck2945/" target="_blank">Christian Kroer</a>. 
                             My research focuses on problems at the intersection of optimization, game theory, and artificial intelligence. 
-                            I completed my undergraduate studies at Peking University. </p>
-                        <div class="contact">
-                            <p><i style="font-size:24px" class="fa">&#xf0e0;</i>  <a href="mailto:tianlong.nan@columbia.edu">tianlong.nan@columbia.edu</a></p>
-                            <p><i style="font-size:24px" class="fa">&#xf1ad;</i>   Mudd 331</p>
-                            <p><i style='font-size:24px' class='fa'>&#xf041;</i>    500 W 120th St, New York, NY 10027</p>
-                        </div>
-                    </div>
+                            I completed my undergraduate studies at Peking University. 
+                        </p>
+                        <!-- <div class="contact"> -->
+                        <!-- <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul> -->
+                        <p id="contact"><i style="font-size:24px" class="fa">&#xf0e0;</i>  <a href="mailto:tianlong.nan@columbia.edu">tianlong.nan@columbia.edu</a></p>
+                        <p><i style="font-size:24px" class="fa">&#xf1ad;</i>   Mudd 331</p>
+                        <p><i style='font-size:24px' class='fa'>&#xf041;</i>    500 W 120th St, New York, NY 10027</p>
+                        <!-- </div> -->
+                    <!-- </div> -->
                 </div>
             </section>
+            <br>
+            <br>
+            <br>
             <section id="research">
                 <div class="research-section">
                     <h2> Research Interest</h2>
