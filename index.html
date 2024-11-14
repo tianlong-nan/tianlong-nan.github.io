@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Tianlong Nan's Homepage</title>
     <style>
         body {
@@ -49,14 +53,18 @@
             justify-content: space-between;
             align-items: center;
             margin: 2rem;
+            padding-left: 1rem;
         }
         #profile-pic {
             float: left;
             width: 30%;
+            margin-right: 3rem;
+            padding-top: 1rem;
         }
         #bio {
             float: right;
             width: 70%;
+            font-size: x-large;
         }
         h2 {
             position: relative;
@@ -108,6 +116,23 @@
             max-width: 500px;
             background-color: #333;
         }
+        .research-section ul li{
+            padding: 8px;
+            font-size: x-large;
+        }
+        .research-section ul li p{
+            padding: 0px;
+            margin: 0px;
+            padding-top: 10px;
+            font-size: x-large;
+        }
+        .research-section ul li button{
+            padding: 0px;
+            margin-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: x-large;
+        }
         footer {
             background-color: #333;
             color: #fff;
@@ -117,20 +142,63 @@
             width: 100%;
             bottom: 0;
         }
+        h3 {
+            font-family:'Times New Roman', Times, serif;
+            white-space: pre;
+            font-size: x-large;
+            margin: 0px;
+            padding-bottom: 10px;
+        }
+        /* customize the buttons with curves */
+        .arXiv {
+            display: inline;
+        }
+
+        .arXiv button {
+            border: none;
+            color: #fff;
+            background-color: #b31b1c;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .AAAI {
+            display: inline;
+        }
+
+        .AAAI button {
+            border: none;
+            color: #fff;
+            background-color: #1e6292;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header id="home">
         <h1>Tianlong Nan</h1>
     </header>
     <nav>
         <a href="#home">Home</a>
         <a href="#research">Research & Publications</a>
-        <a href="#cv">CV</a>
+        <a href="Tianlong_Nan_CV.pdf">CV</a>
     </nav>
     <div id="container">
         <main>
-            <section id="home">
+            <section id="profile">
                 <div id="profile">
                     <div id="profile-pic">
                         <img src="./profile.jpg" alt="Profile Picture" style="width: 80%; height: auto;">
@@ -138,25 +206,85 @@
                     <div id="bio">
                         <!-- <h2>Tianlong Nan</h2>
                         <h3>PhD Student at Columbia IEOR</h3> -->
-                        <p>Hi there, I am Tianlong Nan.</p>
-                        <h3>Email: tianlong.nan@columbia.edu</h3>
+                        <p> Welcome! 
+                            I'm a third-year PhD student in Operations Research at Columbia University, advised by Prof. <a href="https://www.columbia.edu/~ck2945/">Christian Kroer</a>. 
+                            My research focuses on problems at the intersection of optimization, game theory, and artificial intelligence. 
+                            I completed my undergraduate studies at Peking University. </p>
+                        <h3><i style="font-size:24px" class="fa">&#xf0e0;</i>  <a href="mailto:tianlong.nan@columbia.edu">tianlong.nan@columbia.edu</a></h3>
+                        <h3><i style="font-size:24px" class="fa">&#xf1ad;</i>   Mudd 331</h3>
+                        <h3><i style='font-size:24px' class='fa'>&#xf041;</i>    500 W 120th St, New York, NY 10027</h3>
                     </div>
                 </div>
             </section>
             <section id="research">
                 <div class="research-section">
                     <h2> Research Interest</h2>
-                    <p>Showcase your projects here.</p>
+                    <!-- items -->
+                    <ul>
+                        <li>Large-scale Optimization</li>
+                        <li>Algorithmic Game Theory</li>
+                        <li>Market Equilibrium</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Machine Learning</li>
+                    </ul>
                 </div>
                 <div class="research-section">
                 <h2>Articles</h2>
-                    <p>Showcase your projects here.</p>
+                    <ul>
+                        <li>
+                            On the Convergence of Tâtonnement for Linear Fisher Markets. <em>Submitted</em>. 
+                            <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p>
+                            <div class="arXiv"> 
+                                <a href="https://arxiv.org/abs/2406.12526"><button>arXiv</button></a>
+                            </div>
+                        </li>
+                        <br>
+
+                        <li>
+                            Competitive Equilibrium for Chores: from Dual Eisenberg-Gale to a Fast, Greedy, LP-based Algorithm. <em>ACM Economics and Computation</em>, 2024.
+                            <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (in alphabetical order).</p>
+                            <div class="arXiv">
+                                <a href="https://arxiv.org/abs/2402.10439"><button>arXiv</button></a>
+                            </div>
+                            <ul>
+                                <li>Journal version submitted to Operations Research.</li>
+                            </ul>
+                        </li>
+                        <br>
+
+                        <li>
+                            Fast and Interpretable Dynamics for Fisher Markets via Block-Coordinate Updates. <em>AAAI</em>, 2023.
+                            <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p> 
+                            <div class="AAAI">
+                                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/25723"><button>AAAI</button></a>
+                            </div>  
+                            <div class="arXiv">
+                                <a href="https://arxiv.org/abs/2303.00506"><button>arXiv</button></a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="research-section">
                 <h2>Working Papers</h2>
-                    <p>Showcase your projects here.</p>
+                    <ul>
+                        <li>
+                            Convergence of Extragradient SVRG for Variational Inequalities: Error Bounds and Increasing Iterate Averaging. 
+                            <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p>
+                            <div class="arXiv">
+                                <a href="https://arxiv.org/abs/2306.01796"><button>arXiv</button></a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </section>
+            <!-- add space below -->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         </main>
     </div>
     <footer>
