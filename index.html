@@ -227,6 +227,14 @@
             var text = document.getElementById("textField");
             text.style.display = "block";
         }
+        function toggleText() {
+            var text = document.getElementById("textField");
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
     </script>
 </head>
 <body>
@@ -300,11 +308,11 @@
                             Competitive Equilibrium for Chores: from Dual Eisenberg-Gale to a Fast, Greedy, LP-based Algorithm. <em>ACM Economics and Computation</em>, 2024.
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (in alphabetical order).</p>
                             <div class="ACM-EC">
-                                <button title="The proceeding is not online yet, please see the arXiv version.">ACM EC</button>
+                                <button onclick="toggleText()">ACM EC</button>
                             </div>
-                            <!-- <div id="textField" style="display: none;">
-                                The proceeding is not online yet.
-                            </div> -->
+                            <div id="textField" style="display: none;">
+                                The proceeding is not online yet, please see the arXiv version. 
+                            </div>
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2402.10439" target="_blank"><button>arXiv</button></a>
                             </div>
