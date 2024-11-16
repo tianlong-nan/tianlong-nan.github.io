@@ -167,6 +167,9 @@
             border: none;
             color: #fff;
             background-color: #b31b1c;
+            /* color: black;
+            background-color: white;
+            border: 3px solid #b31b1c; */
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -185,6 +188,30 @@
             border: none;
             color: #fff;
             background-color: #1e6292;
+            /* color: black;
+            background-color: white;
+            border: 3px solid #1e6292; */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .ACM-EC {
+            display: inline;
+        }
+
+        .ACM-EC button {
+            border: none;
+            color: #fff;
+            background-color: #4b8a8b;
+            /* color: black;
+            background-color: white;
+            border: 3px solid #1e6292; */
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -195,6 +222,12 @@
             border-radius: 8px;
         }
     </style>
+    <script>
+        function displayText() {
+            var text = document.getElementById("textField");
+            text.style.display = "block";
+        }
+    </script>
 </head>
 <body>
     <header id="home">
@@ -266,6 +299,12 @@
                         <li>
                             Competitive Equilibrium for Chores: from Dual Eisenberg-Gale to a Fast, Greedy, LP-based Algorithm. <em>ACM Economics and Computation</em>, 2024.
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (in alphabetical order).</p>
+                            <div class="ACM-EC">
+                                <button onclick="displayText()">ACM EC</button>
+                            </div>
+                            <div id="textField" style="display: none;">
+                                The proceeding is not online yet.
+                            </div>
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2402.10439" target="_blank"><button>arXiv</button></a>
                             </div>
