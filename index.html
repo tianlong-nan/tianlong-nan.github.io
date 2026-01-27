@@ -202,6 +202,27 @@
             border-radius: 8px;
         }
 
+        .ICLR {
+            display: inline;
+        }
+
+        .ICLR button {
+            border: none;
+            color: #fff;
+            background-color: #c8e21d;
+            /* color: black;
+            background-color: white;
+            border: 3px solid #1e6292; */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
         .ACM-EC {
             display: inline;
         }
@@ -221,6 +242,10 @@
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 8px;
+        }
+        .math {
+            font-family: "STIX Two Math", "Cambria Math", "Latin Modern Math", "Noto Serif Math", serif;
+            /* font-style: italic */
         }
     </style>
     <script>
@@ -292,13 +317,25 @@
                 <h2>Articles</h2>
                     <ul>
                         <li>
-                            On the Convergence of Tâtonnement for Linear Fisher Markets. <em>AAAI</em>, 2025 (Oral). 
-                            <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p>
-                            <div class="AAAI">
-                                <button onclick="toggleText()">AAAI</button>
+                            On the <span class="math">𝒪(1/T)</span> Convergence of Alternating Gradient Descent-Ascent in Bilinear Games. <em>ICLR</em>, 2026. 
+                            <p>Tianlong Nan, Shuvomoy Das Gupta, Garud Iyengar, Christian Kroer.</p>
+                            <div class="ICLR">
+                                <button onclick="toggleText()">ICLR</button>
                             </div> 
                             <div id="textField" style="display: none;">
                                 The proceeding has not been online yet, please see the arXiv version.
+                            </div>
+                            <div class="arXiv"> 
+                                <a href="https://arxiv.org/abs/2510.03855" target="_blank"><button>arXiv</button></a>
+                            </div>
+                        </li>
+                        <br>
+
+                        <li>
+                            On the Convergence of Tâtonnement for Linear Fisher Markets. <em>AAAI</em>, 2025. 
+                            <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p>
+                            <div class="AAAI">
+                                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/33535" target="_blank"><button>AAAI</button></a>
                             </div>
                             <div class="arXiv"> 
                                 <a href="https://arxiv.org/abs/2406.12526" target="_blank"><button>arXiv</button></a>
@@ -319,7 +356,7 @@
                         <br>
 
                         <li>
-                            Fast and Interpretable Dynamics for Fisher Markets via Block-Coordinate Updates. <em>AAAI</em>, 2023 (Oral).
+                            Fast and Interpretable Dynamics for Fisher Markets via Block-Coordinate Updates. <em>AAAI</em>, 2023.
                             <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p> 
                             <div class="AAAI">
                                 <a href="https://ojs.aaai.org/index.php/AAAI/article/view/25723" target="_blank"><button>AAAI</button></a>
@@ -354,7 +391,7 @@
         </main>
     </div>
     <footer>
-        <p>Last updated on Dec 20, 2024.</p>
+        <p>Last updated on Jan 26, 2026.</p>
     </footer>
 </body>
 </html>
