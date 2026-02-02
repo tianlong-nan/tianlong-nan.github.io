@@ -243,6 +243,28 @@
             cursor: pointer;
             border-radius: 8px;
         }
+
+        .ACM-STOC {
+            display: inline;
+        }
+
+        .ACM-STOC button {
+            border: none;
+            color: #fff;
+            background-color: #05048c;
+            /* color: black;
+            background-color: white;
+            border: 3px solid #1e6292; */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
         .math {
             font-family: "STIX Two Math", "Cambria Math", "Latin Modern Math", "Noto Serif Math", serif;
             /* font-style: italic */
@@ -317,6 +339,21 @@
                 <h2>Articles</h2>
                     <ul>
                         <li>
+                            Tâtonnement Dynamics for Fisher Markets with Chores. <em>ACM STOC</em>, 2026.
+                            <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (in alphabetical order).</p>
+                            <div class="ACM-STOC">
+                                <button onclick="toggleText()">ACM STOC</button>
+                            </div> 
+                            <div id="textField" style="display: none;">
+                                The proceeding has not been online yet, please see the arXiv version.
+                            </div>
+                            <div class="arXiv">
+                                <a href="https://arxiv.org/abs/2511.21162" target="_blank"><button>arXiv</button></a>
+                            </div>
+                        </li>
+                        <br>
+
+                        <li>
                             On the <span class="math">𝒪(1/T)</span> Convergence of Alternating Gradient Descent-Ascent in Bilinear Games. <em>ICLR</em>, 2026. 
                             <p>Tianlong Nan, Shuvomoy Das Gupta, Garud Iyengar, Christian Kroer.</p>
                             <div class="ICLR">
@@ -344,7 +381,7 @@
                         <br>
 
                         <li>
-                            Competitive Equilibrium for Chores: from Dual Eisenberg-Gale to a Fast, Greedy, LP-based Algorithm. <em>ACM Economics and Computation</em>, 2024.
+                            Competitive Equilibrium for Chores: from Dual Eisenberg-Gale to a Fast, Greedy, LP-based Algorithm. <em>ACM EC</em>, 2024.
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (in alphabetical order).</p>
                             <div class="ACM-EC">
                                 <a href="https://dl-acm-org.ezproxy.cul.columbia.edu/doi/10.1145/3670865.3673516" target="_blank"><button onclick="toggleText()">ACM EC</button></a>
