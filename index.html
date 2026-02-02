@@ -275,8 +275,16 @@
             var text = document.getElementById("textField");
             text.style.display = "block";
         }
-        function toggleText() {
-            var text = document.getElementById("textField");
+        function toggleTextAltInterior() {
+            var text = document.getElementById("textFieldAltInterior");
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+        function toggleTextChoresTtm() {
+            var text = document.getElementById("textFieldChoresTtm");
             if (text.style.display === "none") {
                 text.style.display = "block";
             } else {
@@ -342,9 +350,9 @@
                             Tâtonnement Dynamics for Fisher Markets with Chores. <em>ACM STOC</em>, 2026.
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (in alphabetical order).</p>
                             <div class="ACM-STOC">
-                                <button onclick="toggleText()">ACM STOC</button>
+                                <button onclick="toggleTextChoresTtm()">ACM STOC</button>
                             </div> 
-                            <div id="textField" style="display: none;">
+                            <div id="textFieldChoresTtm" style="display: none;">
                                 The proceeding has not been online yet, please see the arXiv version.
                             </div>
                             <div class="arXiv">
@@ -357,9 +365,9 @@
                             On the <span class="math">𝒪(1/T)</span> Convergence of Alternating Gradient Descent-Ascent in Bilinear Games. <em>ICLR</em>, 2026. 
                             <p>Tianlong Nan, Shuvomoy Das Gupta, Garud Iyengar, Christian Kroer.</p>
                             <div class="ICLR">
-                                <button onclick="toggleText()">ICLR</button>
+                                <button onclick="toggleTextAltInterior()">ICLR</button>
                             </div> 
-                            <div id="textField" style="display: none;">
+                            <div id="textFieldAltInterior" style="display: none;">
                                 The proceeding has not been online yet, please see the arXiv version.
                             </div>
                             <div class="arXiv"> 
