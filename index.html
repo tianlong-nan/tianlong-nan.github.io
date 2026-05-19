@@ -331,6 +331,15 @@
                 text.style.display = "none";
             }
         }
+
+        function toggleTextLaborLinear() {
+            var text = document.getElementById("textFieldLaborLinear");
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
     </script>
 </head>
 <body>
@@ -391,9 +400,9 @@
                             <p><em>ACM Conference on Economics and Computation</em>, 2026.</p>
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan, Zongjun Yang (alphabetical order).</p>
                             <div class="ACM-EC">
-                                <button onclick="toggleTextChoresTtm()">EC</button>
+                                <button onclick="toggleTextLaborLinear()">EC</button>
                             </div> 
-                            <div id="textFieldChoresTtm" style="display: none;">
+                            <div id="textFieldLaborLinear" style="display: none;">
                                 The proceeding has not been online yet. The arXiv version is in preparation.
                             </div>
                         </li>
