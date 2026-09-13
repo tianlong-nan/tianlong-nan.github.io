@@ -333,6 +333,24 @@
             border-radius: 8px;
         }
 
+        .Poster {
+            display: inline;
+        }
+
+        .Poster button {
+            border: none;
+            color: #fff;
+            background-color: #6b7280;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
         .abstract {
             display: inline;
         }
@@ -556,6 +574,9 @@
                             <div class="abstract">
                                 <button type="button" aria-controls="textFieldDualEgAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldDualEgAbstract')">Abstract</button>
                             </div>
+                            <div class="Slides">
+                                <a href="slides/competitive-equilibrium-for-chores-from-dual-Eisenberg-Gale-to-a-fast-greedy-LP-based-algorithm.pdf" target="_blank" rel="noopener"><button>Slides</button></a>
+                            </div>
                             <div id="textFieldDualEgAbstract" class="abstract-text" hidden>
                                 <p>We study the computation of competitive equilibrium for Fisher markets with <span class="math"><em>n</em></span> agents and <span class="math"><em>m</em></span> divisible chores. Competitive equilibria for chores are known to correspond to the nonzero KKT points of a program that minimizes the product of agent disutilities, which is a non-convex program whose zero points foil iterative optimization methods.</p>
                                 <p>We introduce a dual-like analogue of this program, and show that a simple modification to our “dual” program avoids such zero points, while retaining the correspondence between KKT points and competitive equilibria. This allows, for the first time ever, application of iterative optimization methods over a convex region for computing competitive equilibria for chores.</p>
@@ -575,11 +596,14 @@
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2303.00506" target="_blank"><button>arXiv</button></a>
                             </div>
-                            <div class="Slides">
-                                <a href="slides/fast-and-interpretable-dynamics-for-fisher-markets-via-block-coordinate-updates.pdf" target="_blank" rel="noopener"><button>Slides</button></a>
-                            </div>
                             <div class="abstract">
                                 <button type="button" aria-controls="textFieldBlockCoordinateAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldBlockCoordinateAbstract')">Abstract</button>
+                            </div>
+                            <div class="Slides">
+                                <a href="slides/fast-and-interpretable-dynamics-for-Fisher-markets-via-block-coordinate-updates.pdf" target="_blank" rel="noopener"><button>Slides</button></a>
+                            </div>
+                            <div class="Poster">
+                                <a href="posters/fast-and-interpretable-dynamics-for-Fisher-markets-via-block-coordinate-updates.pdf" target="_blank" rel="noopener"><button>Poster</button></a>
                             </div>
                             <div id="textFieldBlockCoordinateAbstract" class="abstract-text" hidden>
                                 <p>We consider the problem of large-scale Fisher market equilibrium computation through scalable first-order optimization methods. It is well-known that market equilibria can be captured using structured convex programs such as the Eisenberg–Gale and Shmyrev convex programs. Highly performant deterministic full-gradient first-order methods have been developed for these programs.</p>
