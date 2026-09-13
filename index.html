@@ -319,7 +319,7 @@
 
         .abstract button {
             border: none;
-            color: #000000;
+            color: #7a7a7a;
             background-color: #ffffff;
             /* color: black;
             background-color: white;
@@ -345,31 +345,19 @@
         }
     </style>
     <script>
-        function displayText() {
-            var text = document.getElementById("textField");
-            text.style.display = "block";
-        }
-        
-        function toggleTextAltInterior() {
-            var text = document.getElementById("textFieldAltInterior");
-            if (text.style.display === "none") {
-                text.style.display = "block";
-            } else {
-                text.style.display = "none";
+        function toggleProceedingNotice(button, noticeId) {
+            var notice = document.getElementById(noticeId);
+            if (!notice) {
+                return;
             }
-        }
-        
-        function toggleTextChoresTtm() {
-            var text = document.getElementById("textFieldChoresTtm");
-            if (text.style.display === "none") {
-                text.style.display = "block";
-            } else {
-                text.style.display = "none";
-            }
+
+            var isOpening = notice.hidden;
+            notice.hidden = !isOpening;
+            button.setAttribute("aria-expanded", String(isOpening));
         }
 
-        function toggleTextChoresTtmAbstract(button) {
-            var text = document.getElementById("textFieldChoresTtmAbstract");
+        function toggleAbstract(button, abstractId) {
+            var text = document.getElementById(abstractId);
             if (!text) {
                 return;
             }
@@ -378,15 +366,6 @@
             text.hidden = !isOpening;
             button.setAttribute("aria-expanded", String(isOpening));
             button.textContent = isOpening ? "Hide Abstract" : "Abstract";
-        }
-
-        function toggleTextLaborLinear() {
-            var text = document.getElementById("textFieldLaborLinear");
-            if (text.style.display === "none") {
-                text.style.display = "block";
-            } else {
-                text.style.display = "none";
-            }
         }
     </script>
 </head>
@@ -397,7 +376,6 @@
     <nav>
         <a href="#home">Home</a>
         <a href="#research">Research & Publications</a>
-        <a href="Tianlong_Nan_CV.pdf">CV</a>
     </nav>
     <div id="container">
         <main>
@@ -447,13 +425,20 @@
                             <p><em>ACM Conference on Economics and Computation</em>, 2026.</p>
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan, Zongjun Yang (alphabetical order).</p>
                             <div class="ACM-EC">
-                                <button onclick="toggleTextLaborLinear()">EC</button>
-                            </div> 
-                            <div id="textFieldLaborLinear" style="display: none;">
-                                The proceeding has not been online yet. The arXiv version is in preparation.
+                                <button type="button" aria-controls="textFieldLaborLinear" aria-expanded="false" onclick="toggleProceedingNotice(this, 'textFieldLaborLinear')">EC</button>
+                            </div>
+                            <div id="textFieldLaborLinear" hidden>
+                                The EC 2026 proceedings are not available online yet. Please use the arXiv version.
                             </div>
                             <div class="arXiv">
-                                <a href="https://arxiv.org/abs/2606.15060" target="_blank"><button>arXiv</button></a>
+                                <a href="https://arxiv.org/abs/2606.15060" target="_blank" rel="noopener"><button>arXiv</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldLaborAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldLaborAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldLaborAbstract" class="abstract-text" hidden>
+                                <p>In this paper, we study a two-sided labor market that couples the classical Fisher market with goods and the Fisher market with bads into a single unified framework. In our model, users demand tasks in order to derive utility, while workers supply labor to perform these tasks in exchange for earnings. Each task thus plays a dual role: it is a good for the user side of the market and a chore for the worker side. Given prices for tasks, users choose utility-maximizing bundles subject to budgets, while workers choose disutility-minimizing task bundles subject to earning requirements; the resulting choices induce demand and supply endogenously for each task, and a CE corresponds to prices at which these coincide. We show that such markets are guaranteed to admit a CE in a very general setting, and the first and second welfare theorems hold for our labor market model.</p>
+                                <p>We next study the computation of equilibria under linear preferences. We show that, similar to the chores setting, equilibria correspond to KKT points of an Eisenberg–Gale-like non-convex program. Despite the non-convex characterization, we go on to show a set of surprisingly positive results. First, we show that there exists a polynomial-time combinatorial algorithm for computing CE, which relies on a natural Walrasian scheme for updating prices. In the “CEEI-like” case, this yields a strongly polynomial-time algorithm. We next show that our market admits a natural dual program, and this non-convex labor-market program admits a change of variables that transforms it into a linear program (albeit with irrational coefficients). Finally, leveraging this LP, we give yet another polynomial-time algorithm while deriving an approach for addressing the irrational coefficients in an efficient manner. We note that, even for goods-only linear Fisher markets, obtaining such an LP formulation remains open.</p>
                             </div>
                         </li>
                         <br>
@@ -463,26 +448,31 @@
                             <p><em>ACM Symposium on Theory of Computing</em>, 2026.</p>
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (alphabetical order).</p>
                             <div class="ACM-STOC">
-                                <a href="https://doi.org/10.1145/3798129.3800758" target="_blank"><button onclick="toggleTextChoresTtm()">STOC</button></a>
+                                <a href="https://doi.org/10.1145/3798129.3800758" target="_blank" rel="noopener"><button>STOC</button></a>
                             </div> 
-                            <!-- <div id="textFieldChoresTtm" style="display: none;">
-                                The proceeding has not been online yet, please see the arXiv version.
-                            </div> -->
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2511.21162" target="_blank"><button>arXiv</button></a>
                             </div>
                             <div class="abstract">
-                                <button type="button" aria-controls="textFieldChoresTtmAbstract" aria-expanded="false" onclick="toggleTextChoresTtmAbstract(this)">Abstract</button>
+                                <button type="button" aria-controls="textFieldChoresTtmAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldChoresTtmAbstract')">Abstract</button>
                             </div>
                             <div id="textFieldChoresTtmAbstract" class="abstract-text" hidden>
-                                <p>In this paper, we initiate the study of tâtonnement dynamics in markets with chores. Tâtonnement is a fundamental market dynamics, that captures how prices evolve when they are adjusted in proportion of their excess demand. While its convergence to a competitive equilibrium (CE) is well understood in goods markets for broad classes of utility functions, no analogous results are known for chore markets.</p>
-                                <p>Analyzing tâtonnement in the chores market presents new challenges. Several elegant structural properties that facilitate convergence in goods markets—such as convexity of the equilibrium price set and monotonicity of excess demand under the tâtonnement price updates—fail to hold in the chore setting. Consistent with these difficulties, we first show that naïve tâtonnement, which adjusts prices proportional to the excess demand, diverges even for the simplest case of linear disutilities.</p>
-                                <p>To overcome this, we propose a modified process called relative tâtonnement, where prices are updated according to normalized excess demand. We prove its convergence to a CE under suitable step-size choices for a broad class of disutility functions, namely continuous, convex, and 1-homogeneous (CCH) disutilities. This class includes many standard forms such as linear and convex CES disutilities.</p>
-                                <p>Our proof proceeds by showing that the relative tâtonnement dynamics correspond to applying generalized gradient methods to a nonsmooth, nonconvex yet regular objective function—a generalization of the objective in the Eisenberg–Gale-type dual program introduced by Chaudhury, Kroer, Mehta, and Nan [EC 2024].</p>
-                                <p>For the case of CES disutilities, where disutility is the <span class="math"><em>p</em></span>-norm of the individual chore disutilities for <span class="math"><em>p</em> ∈ (1, ∞)</span>, we show that relative tâtonnement converges to an <span class="math">ε</span>-CE in <span class="math">Õ(1/ε<sup>2</sup>)</span> iterations. This quadratic convergence rate is established by proving smoothness of the associated objective function. We achieve this by interpreting the objective as the polar gauge (or gauge dual) of the disutility function.</p>
-                                <p>Typically, smoothness of gauge dual is proven by proving strong convexity of the primal gauge, (in this case, the disutility function). Although CES disutilities are neither strictly nor strongly convex, we are nonetheless able to prove smoothness of their gauge dual, thereby obtaining the desired rate of convergence.</p>
-                                <p>Finally, following the framework of Arrow and Hurvicz [Econometrica 1958], we analyze the stability of competitive equilibria under the continuous-time counterpart of our relative tâtonnement dynamics. We provide a complete characterization of local stability when agents have linear disutilities—offering a new normative justification for their desirability [Bogomolnaia, Moulin, Sandomirskiy, and Yanovskaya (Econometrica 2017)].</p>
-                                <p>The full version of the paper is available on arXiv.</p>
+                                <p>
+                                    In this paper, we initiate the study of tâtonnement dynamics in markets with chores. Tâtonnement is a fundamental market dynamics, that captures how prices evolve when they are adjusted in proportion of their excess demand. While its convergence to a competitive equilibrium (CE) is well understood in goods markets for broad classes of utility functions, no analogous results are known for chore markets.
+                                </p>
+                                <p>
+                                    Analyzing tâtonnement in the chores market presents new challenges. Several elegant structural properties that facilitate convergence in goods markets—such as convexity of the equilibrium price set and monotonicity of excess demand under the tâtonnement price updates—fail to hold in the chore setting. Consistent with these difficulties, we first show that naïve tâtonnement, which adjusts prices proportional to the excess demand, diverges even for the simplest case of linear disutilities.
+                                    To overcome this, we propose a modified process called relative tâtonnement, where prices are updated according to normalized excess demand. We prove its convergence to a CE under suitable step-size choices for a broad class of disutility functions, namely continuous, convex, and 1-homogeneous (CCH) disutilities. This class includes many standard forms such as linear and convex CES disutilities.
+                                    Our proof proceeds by showing that the relative tâtonnement dynamics correspond to applying generalized gradient methods to a nonsmooth, nonconvex yet regular objective function—a generalization of the objective in the Eisenberg–Gale-type dual program introduced by Chaudhury, Kroer, Mehta, and Nan [EC 2024].
+                                </p>
+                                <p>
+                                    For the case of CES disutilities, where disutility is the <span class="math"><em>p</em></span>-norm of the individual chore disutilities for <span class="math"><em>p</em> ∈ (1, ∞)</span>, we show that relative tâtonnement converges to an <span class="math">ε</span>-CE in <span class="math">Õ(1/ε<sup>2</sup>)</span> iterations. This quadratic convergence rate is established by proving smoothness of the associated objective function. We achieve this by interpreting the objective as the polar gauge (or gauge dual) of the disutility function.
+                                    Typically, smoothness of gauge dual is proven by proving strong convexity of the primal gauge, (in this case, the disutility function). Although CES disutilities are neither strictly nor strongly convex, we are nonetheless able to prove smoothness of their gauge dual, thereby obtaining the desired rate of convergence.
+                                </p>
+                                <p>
+                                    Finally, following the framework of Arrow and Hurvicz [Econometrica 1958], we analyze the stability of competitive equilibria under the continuous-time counterpart of our relative tâtonnement dynamics. We provide a complete characterization of local stability when agents have linear disutilities—offering a new normative justification for their desirability [Bogomolnaia, Moulin, Sandomirskiy, and Yanovskaya (Econometrica 2017)].
+                                    The full version of the paper is available on arXiv.
+                                </p>
                             </div>
                         </li>
                         <br>
@@ -492,13 +482,18 @@
                             <p><em>International Conference on Learning Representations</em>, 2026.</p>
                             <p>Tianlong Nan, Shuvomoy Das Gupta, Garud Iyengar, Christian Kroer.</p>
                             <div class="ICLR">
-                                <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/7ff8961c143a618f8998d2d1c095012e-Abstract-Conference.html" target="_blank"><button onclick="toggleTextAltInterior()">ICLR</button></a>
+                                <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/7ff8961c143a618f8998d2d1c095012e-Abstract-Conference.html" target="_blank" rel="noopener"><button>ICLR</button></a>
                             </div> 
-                            <!-- <div id="textFieldAltInterior" style="display: none;">
-                                The proceeding has not been online yet, please see the arXiv version.
-                            </div> -->
                             <div class="arXiv"> 
                                 <a href="https://arxiv.org/abs/2510.03855" target="_blank"><button>arXiv</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldAltGdaAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldAltGdaAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldAltGdaAbstract" class="abstract-text" hidden>
+                                <p>We study the alternating gradient descent-ascent (AltGDA) algorithm in two-player zero-sum games. Alternating methods, where players take turns to update their strategies, have long been recognized as simple and practical approaches for learning in games, exhibiting much better numerical performance than their simultaneous counterparts. However, our theoretical understanding of alternating algorithms remains limited, and results are mostly restricted to the unconstrained setting.</p>
+                                <p>We show that for two-player zero-sum games that admit an interior Nash equilibrium, AltGDA converges at an <span class="math">𝒪(1/T)</span> ergodic convergence rate when employing a small constant stepsize. This is the first result showing that alternation improves over the simultaneous counterpart of GDA in the constrained setting. For games without an interior equilibrium, we show an <span class="math">𝒪(1/T)</span> local convergence rate with a constant stepsize that is independent of any game-specific constants.</p>
+                                <p>In a more general setting, we develop a performance estimation programming (PEP) framework to jointly optimize the AltGDA stepsize along with its worst-case convergence rate. The PEP results indicate that AltGDA may achieve an <span class="math">𝒪(1/T)</span> convergence rate for a finite horizon <span class="math">T</span>, whereas its simultaneous counterpart appears limited to an <span class="math">𝒪(1/√T)</span> rate.</p>
                             </div>
                         </li>
                         <br>
@@ -513,6 +508,14 @@
                             <div class="arXiv"> 
                                 <a href="https://arxiv.org/abs/2406.12526" target="_blank"><button>arXiv</button></a>
                             </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldLinearFisherAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldLinearFisherAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldLinearFisherAbstract" class="abstract-text" hidden>
+                                <p>Tâtonnement is a simple, intuitive market process where prices are iteratively adjusted based on the difference between demand and supply. Many variants under different market assumptions have been studied and shown to converge to a market equilibrium, in some cases at a fast rate. However, the classical case of linear Fisher markets have long eluded the analyses, and it remains unclear whether tâtonnement converges in this case.</p>
+                                <p>We show that, for a sufficiently small stepsize, the prices given by the tâtonnement process are guaranteed to converge to equilibrium prices, up to a small approximation radius that depends on the stepsize. To achieve this, we consider the dual Eisenberg–Gale convex program in the price space, view tâtonnement as subgradient descent on this convex program, and utilize novel last-iterate convergence results for subgradient descent under error bound conditions.</p>
+                                <p>In doing so, we show that the convex program satisfies a particular error bound condition, the quadratic growth condition, and that the price sequence generated by tâtonnement is bounded above and away from zero. We also show that a similar convergence result holds for tâtonnement in quasi-linear Fisher markets. Numerical experiments are conducted to demonstrate that the theoretical linear convergence aligns with empirical observations.</p>
+                            </div>
                         </li>
                         <br>
 
@@ -522,13 +525,22 @@
                             <p><em>ACM Conference on Economics and Computation</em>, 2024.</p>
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (alphabetical order).</p>
                             <div class="ACM-EC">
-                                <a href="https://doi.org/10.1145/3670865.3673516" target="_blank"><button onclick="toggleText()">EC</button></a>
+                                <a href="https://doi.org/10.1145/3670865.3673516" target="_blank"><button>EC</button></a>
                             </div>
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2402.10439" target="_blank"><button>arXiv</button></a>
                             </div>
                             <div class="Code">
                                 <a href="https://github.com/CoffeeAndConvexity/GFW-Linear-Chores-Fisher" target="_blank"><button>Code</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldDualEgAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldDualEgAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldDualEgAbstract" class="abstract-text" hidden>
+                                <p>We study the computation of competitive equilibrium for Fisher markets with <span class="math"><em>n</em></span> agents and <span class="math"><em>m</em></span> divisible chores. Competitive equilibria for chores are known to correspond to the nonzero KKT points of a program that minimizes the product of agent disutilities, which is a non-convex program whose zero points foil iterative optimization methods.</p>
+                                <p>We introduce a dual-like analogue of this program, and show that a simple modification to our “dual” program avoids such zero points, while retaining the correspondence between KKT points and competitive equilibria. This allows, for the first time ever, application of iterative optimization methods over a convex region for computing competitive equilibria for chores.</p>
+                                <p>We next introduce a greedy Frank–Wolfe algorithm for optimization over our program and show a new state-of-the-art convergence rate to competitive equilibrium. Moreover, our method is significantly simpler than prior methods: each iteration of our method only requires solving a simple linear program.</p>
+                                <p>We show through numerical experiments that our method is extremely practical: it easily solves every instance we tried, including instances with hundreds of agents and up to 1000 chores, usually in 10–30 iterations, is simple to implement, and has no numerical issues.</p>
                             </div>
                         </li>
                         <br>
@@ -543,6 +555,14 @@
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2303.00506" target="_blank"><button>arXiv</button></a>
                             </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldBlockCoordinateAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldBlockCoordinateAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldBlockCoordinateAbstract" class="abstract-text" hidden>
+                                <p>We consider the problem of large-scale Fisher market equilibrium computation through scalable first-order optimization methods. It is well-known that market equilibria can be captured using structured convex programs such as the Eisenberg–Gale and Shmyrev convex programs. Highly performant deterministic full-gradient first-order methods have been developed for these programs.</p>
+                                <p>In this paper, we develop new block-coordinate first-order methods for computing Fisher market equilibria, and show that these methods have interpretations as tâtonnement-style or proportional response-style dynamics where either buyers or items show up one at a time. We reformulate these convex programs and solve them using proximal block coordinate descent methods, a class of methods that update only a small number of coordinates of the decision variable in each iteration.</p>
+                                <p>Leveraging recent advances in the convergence analysis of these methods and structures of the equilibrium-capturing convex programs, we establish fast convergence rates of these methods.</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -554,7 +574,13 @@
                             <!-- <p>Tianlong Nan.</p> -->
                             <p> </p>
                             <div class="Manuscript">
-                                <a href="CTR_Prediction_Upload.pdf" target="_blank" rel="noopener"><button>Manuscript</button></a>
+                                <a href="CTR-Prediction-Upload.pdf" target="_blank" rel="noopener"><button>Manuscript</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldTtamAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldTtamAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldTtamAbstract" class="abstract-text" hidden>
+                                <p>Click-through rate (CTR) prediction is important in online advertising and recommendation systems. CTR prediction can be challenging in practice, especially under temporal distribution shift. Existing methods often treat historical adaptation over model training and within-day information online updates separately, limiting their ability to exploit both heterogeneous historical data and newly available feedback. We propose Two-Timescale Adaptive Memory (TTAM), a causal framework that combines context-dependent historical weighting with adaptive-persistence online calibration. At the slower timescale, TTAM learns which historical horizons to use and how quickly their weights should change. At the faster timescale, it adapts calibration memory using delayed within-day feedback. We theoretically establish stability properties and regret guarantees for calibration aggregation. Experiments show that TTAM improves robustness across 14 controlled drift regimes and increases downstream bidding value. On the full Criteo and Avazu datasets, TTAM achieves strong performance against competing baselines under rolling-origin evaluation, supporting the value of adaptive memory at both timescales.</p>
                             </div>
                         </li>
                     </ul>
@@ -564,6 +590,14 @@
                             <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p>
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2306.01796" target="_blank"><button>arXiv</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldSvrgAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldSvrgAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldSvrgAbstract" class="abstract-text" hidden>
+                                <p>We study the last-iterate convergence of variance reduction methods for extragradient (EG) algorithms for a class of variational inequalities satisfying error-bound conditions. Previously, last-iterate linear convergence was only known under strong monotonicity. We show that EG algorithms with SVRG-style variance reduction, denoted SVRG-EG, attain last-iterate linear convergence under a general error-bound condition much weaker than strong monotonicity.</p>
+                                <p>This condition captures a broad class of non-strongly monotone problems, such as bilinear saddle-point problems commonly encountered in two-player zero-sum Nash equilibrium computation. Next, we establish linear last-iterate convergence of SVRG-EG with an improved guarantee under the weak sharpness assumption.</p>
+                                <p>Furthermore, motivated by the empirical efficiency of increasing iterate averaging techniques in solving saddle-point problems, we also establish new convergence results for SVRG-EG with such techniques.</p>
                             </div>
                         </li>
                     </ul>
