@@ -295,6 +295,24 @@
             border-radius: 8px;
         }
 
+        .Code {
+            display: inline;
+        }
+
+        .Code button {
+            border: none;
+            color: #fff;
+            background-color: #181717;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
         .abstract {
             display: inline;
         }
@@ -314,6 +332,11 @@
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 8px;
+        }
+
+        .research-section ul li .abstract-text p {
+            font-size: medium;
+            line-height: 1.5;
         }
 
         .math {
@@ -345,13 +368,16 @@
             }
         }
 
-        function toggleTextChoresTtmAbstract() {
+        function toggleTextChoresTtmAbstract(button) {
             var text = document.getElementById("textFieldChoresTtmAbstract");
-            if (text.style.display === "none") {
-                text.style.display = "block";
-            } else {
-                text.style.display = "none";
+            if (!text) {
+                return;
             }
+
+            var isOpening = text.hidden;
+            text.hidden = !isOpening;
+            button.setAttribute("aria-expanded", String(isOpening));
+            button.textContent = isOpening ? "Hide Abstract" : "Abstract";
         }
 
         function toggleTextLaborLinear() {
@@ -437,7 +463,7 @@
                             <p><em>ACM Symposium on Theory of Computing</em>, 2026.</p>
                             <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (alphabetical order).</p>
                             <div class="ACM-STOC">
-                                <a href="https://doi.org/10.1145/3798129.3800758"><button onclick="toggleTextChoresTtm()">STOC</button></a>
+                                <a href="https://doi.org/10.1145/3798129.3800758" target="_blank"><button onclick="toggleTextChoresTtm()">STOC</button></a>
                             </div> 
                             <!-- <div id="textFieldChoresTtm" style="display: none;">
                                 The proceeding has not been online yet, please see the arXiv version.
@@ -445,19 +471,19 @@
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2511.21162" target="_blank"><button>arXiv</button></a>
                             </div>
-                            <!-- <div class="abstract">
-                                <button onclick="toggleTextChoresTtmAbstract()">Abstract</button>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldChoresTtmAbstract" aria-expanded="false" onclick="toggleTextChoresTtmAbstract(this)">Abstract</button>
                             </div>
-                            <div id="textFieldChoresTtmAbstract" style="display: none;font-size:9px">
-                                <p>In this paper, we initiate the study of <em>tâtonnement dynamics in markets with chores</em>. Tâtonnement is a fundamental market dynamic, that captures how prices evolve when they are adjusted in proportion of their excess demand. While its convergence to a competitive equilibrium (CE) is well understood in goods markets for broad classes of utility functions, no analogous results are known for chore markets.</p>
-
-<p>Analyzing tâtonnement in the chores market presents new challenges. Several elegant structural properties that facilitate convergence in goods markets---such as convexity of the equilibrium price set and monotonicity of excess demand under the tâtonnement price updates---<em>fail to hold in the chore setting</em>. Consistent with these difficulties, we first show that <em>naïve tâtonnement</em>, which adjusts prices proportional to the excess demand, diverges even for the simplest case of linear disutilities. To overcome this, we propose a modified process called <em>relative tâtonnement</em>, where prices are updated according to normalized excess demand. We prove its <em>convergence to a CE</em> 
-under suitable step-size choices for a broad class of disutility functions, namely <em>continuous, convex, and 1-homogeneous (CCH)</em> disutilities. This class includes many standard forms such as linear and convex CES disutilities. Our proof proceeds by showing that the relative tâtonnement dynamics correspond to applying generalized gradient methods to a nonsmooth, nonconvex yet regular objective function---<em>a generalization of the objective in the Eisenberg--Gale-type dual program</em> introduced by [CKMN24].</p> 
-
-<p>For the case of <em>CES disutilities</em>, where disutility is the $p$-norm of the individual chore disutilities for <span class="math">p \in (1, ∞)</span>, we show that relative tâtonnement converges to an <span class="math">ε</span>-CE in <span class="math">O(1/ε^2)</span> iterations. This <em>quadratic convergence rate</em> is established by proving smoothness of the associated objective function. We achieve this by interpreting the objective as the <em>polar gauge (or gauge dual)</em> of the disutility function. Typically, smoothness of gauge dual is proven by proving strong convexity of the <em>primal gauge</em>, (in this case, the disutility function). Although CES disutilities are neither strictly nor strongly convex, we are nonetheless able to prove smoothness of their gauge dual, thereby obtaining the desired rate of convergence.</p>
-
-<p>Finally, following the framework of [AH58], we analyze the <em>stability of competitive equilibria</em> under the continuous-time counterpart of our relative tâtonnement dynamics. We provide a complete characterization of local stability and show that the <em>Nash welfare maximizing CE</em> is always locally stable when agents have <em>linear disutilities</em>---offering a new normative justification for their desirability [BMSY17].</p>
-                            </div> -->
+                            <div id="textFieldChoresTtmAbstract" class="abstract-text" hidden>
+                                <p>In this paper, we initiate the study of tâtonnement dynamics in markets with chores. Tâtonnement is a fundamental market dynamics, that captures how prices evolve when they are adjusted in proportion of their excess demand. While its convergence to a competitive equilibrium (CE) is well understood in goods markets for broad classes of utility functions, no analogous results are known for chore markets.</p>
+                                <p>Analyzing tâtonnement in the chores market presents new challenges. Several elegant structural properties that facilitate convergence in goods markets—such as convexity of the equilibrium price set and monotonicity of excess demand under the tâtonnement price updates—fail to hold in the chore setting. Consistent with these difficulties, we first show that naïve tâtonnement, which adjusts prices proportional to the excess demand, diverges even for the simplest case of linear disutilities.</p>
+                                <p>To overcome this, we propose a modified process called relative tâtonnement, where prices are updated according to normalized excess demand. We prove its convergence to a CE under suitable step-size choices for a broad class of disutility functions, namely continuous, convex, and 1-homogeneous (CCH) disutilities. This class includes many standard forms such as linear and convex CES disutilities.</p>
+                                <p>Our proof proceeds by showing that the relative tâtonnement dynamics correspond to applying generalized gradient methods to a nonsmooth, nonconvex yet regular objective function—a generalization of the objective in the Eisenberg–Gale-type dual program introduced by Chaudhury, Kroer, Mehta, and Nan [EC 2024].</p>
+                                <p>For the case of CES disutilities, where disutility is the <span class="math"><em>p</em></span>-norm of the individual chore disutilities for <span class="math"><em>p</em> ∈ (1, ∞)</span>, we show that relative tâtonnement converges to an <span class="math">ε</span>-CE in <span class="math">Õ(1/ε<sup>2</sup>)</span> iterations. This quadratic convergence rate is established by proving smoothness of the associated objective function. We achieve this by interpreting the objective as the polar gauge (or gauge dual) of the disutility function.</p>
+                                <p>Typically, smoothness of gauge dual is proven by proving strong convexity of the primal gauge, (in this case, the disutility function). Although CES disutilities are neither strictly nor strongly convex, we are nonetheless able to prove smoothness of their gauge dual, thereby obtaining the desired rate of convergence.</p>
+                                <p>Finally, following the framework of Arrow and Hurvicz [Econometrica 1958], we analyze the stability of competitive equilibria under the continuous-time counterpart of our relative tâtonnement dynamics. We provide a complete characterization of local stability when agents have linear disutilities—offering a new normative justification for their desirability [Bogomolnaia, Moulin, Sandomirskiy, and Yanovskaya (Econometrica 2017)].</p>
+                                <p>The full version of the paper is available on arXiv.</p>
+                            </div>
                         </li>
                         <br>
 
@@ -466,7 +492,7 @@ under suitable step-size choices for a broad class of disutility functions, name
                             <p><em>International Conference on Learning Representations</em>, 2026.</p>
                             <p>Tianlong Nan, Shuvomoy Das Gupta, Garud Iyengar, Christian Kroer.</p>
                             <div class="ICLR">
-                                <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/7ff8961c143a618f8998d2d1c095012e-Abstract-Conference.html"><button onclick="toggleTextAltInterior()">ICLR</button></a>
+                                <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/7ff8961c143a618f8998d2d1c095012e-Abstract-Conference.html" target="_blank"><button onclick="toggleTextAltInterior()">ICLR</button></a>
                             </div> 
                             <!-- <div id="textFieldAltInterior" style="display: none;">
                                 The proceeding has not been online yet, please see the arXiv version.
@@ -500,6 +526,9 @@ under suitable step-size choices for a broad class of disutility functions, name
                             </div>
                             <div class="arXiv">
                                 <a href="https://arxiv.org/abs/2402.10439" target="_blank"><button>arXiv</button></a>
+                            </div>
+                            <div class="Code">
+                                <a href="https://github.com/CoffeeAndConvexity/GFW-Linear-Chores-Fisher" target="_blank"><button>Code</button></a>
                             </div>
                         </li>
                         <br>
