@@ -234,6 +234,24 @@
             border-radius: 8px;
         }
 
+        .NeurIPS {
+            display: inline;
+        }
+
+        .NeurIPS button {
+            border: none;
+            color: #fff;
+            background-color: #68448b;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
         .ICLR {
             display: inline;
         }
@@ -458,6 +476,29 @@
                 <div class="research-section">
                 <h2>Articles</h2>
                     <ul>
+                        <li>
+                            Fully Distributed Tâtonnement for Chores Markets.
+                            <p><em>Conference on Neural Information Processing Systems</em>, 2026.</p>
+                            <p>Bhaskar Ray Chaudhury, Christian Kroer, Ruta Mehta, Tianlong Nan (alphabetical order).</p>
+                            <div class="NeurIPS">
+                                <button type="button" aria-controls="textFieldDistributedChoresProceedings" aria-expanded="false" onclick="toggleProceedingNotice(this, 'textFieldDistributedChoresProceedings')">NeurIPS</button>
+                            </div>
+                            <div id="textFieldDistributedChoresProceedings" hidden>
+                                The NeurIPS 2027 proceedings are not available online yet. Please use the arXiv version.
+                            </div>
+                            <div class="arXiv">
+                                <a href="https://arxiv.org/abs/2607.00300" target="_blank" rel="noopener"><button>arXiv</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldDistributedChoresAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldDistributedChoresAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldDistributedChoresAbstract" class="abstract-text" hidden>
+                                <p>We study price-adjustment dynamics for computing competitive equilibria (CE) in Fisher markets with chores. Unlike in classical goods markets, prices in chores markets are payments for taking on undesirable tasks, and natural excess-demand dynamics can fail; even the naïve analogue of Walrasian tâtonnement may diverge. Recent work of Chaudhury et al. [2025] overcomes this obstacle via relative tâtonnement, which subtracts the average excess-demand signal from the excess demand vector. This recovers convergence, but at the cost of coupling the price updates across all chores. This leaves open whether such global coupling is inherent, or whether convergent tâtonnement can be recovered through a genuinely local update in which each chore reacts only to its own excess demand.</p>
+                                <p>We answer this question affirmatively through multiplicative tâtonnement, a fully distributed dynamics in which each chore price is updated using only its current price and its own excess-demand signal. Although the update contains no explicit normalization term, Walras' law and the multiplicative form of the update implicitly preserve the relevant aggregate price geometry. We prove that multiplicative tâtonnement converges to a CE in any chores Fisher market with continuous, convex, and 1-homogeneous (CCH) disutilities. For convex CES disutilities, we further prove an approximate-CE convergence rate with the same <span class="math">O(1/ε<sup>2</sup>)</span> dependence as relative tâtonnement, but with improved dependence on problem constants. Experiments on real-world and simulated instances show that multiplicative tâtonnement is substantially faster in practice, often by an order of magnitude.</p>
+                            </div>
+                        </li>
+                        <br>
+
                         <li>
                             Competitive Equilibrium in Labor Economies through the Lens of Goods and Chores Fisher Markets.
                             <p><em>ACM Conference on Economics and Computation</em>, 2026.</p>
