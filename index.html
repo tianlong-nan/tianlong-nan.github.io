@@ -333,6 +333,10 @@
             border-radius: 8px;
         }
 
+        .Code.Lean button {
+            background-color: #386EE0;
+        }
+
         .Slides {
             display: inline;
         }
@@ -471,6 +475,68 @@
                         <li>Large-scale Optimization</li>
                         <li>Artificial Intelligence</li>
                         <li>Machine Learning</li>
+                    </ul>
+                </div>
+                <div class="research-section">
+                <h2>Preprints</h2>
+                    <ul>
+                        <li>
+                            AltGDA Achieves Global <span class="math">O(1/T)</span> Ergodic Convergence in Matrix Games.
+                            <p>Tianlong Nan, Garud Iyengar, Christian Kroer, Shuvomoy Das Gupta.</p>
+                            <div class="arXiv">
+                                <a href="https://arxiv.org/abs/2609.32995" target="_blank" rel="noopener"><button>arXiv</button></a>
+                            </div>
+                            <div class="Code Lean">
+                                <a href="https://github.com/Shuvomoy/AltGDA-code" target="_blank" rel="noopener"><button>Lean</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldAltGdaGlobalAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldAltGdaGlobalAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldAltGdaGlobalAbstract" class="abstract-text" hidden>
+                                <p>Alternating gradient descent-ascent (AltGDA) is a simple and practically effective method for solving finite two-player zero-sum matrix games. However, the theory of AltGDA remains limited: existing results either apply only to unconstrained settings or require restrictive assumptions on the equilibrium in constrained settings. We show that AltGDA converges globally at an <span class="math">O(1/T)</span> ergodic rate in every finite two-player zero-sum matrix game.</p>
+                                <p>Unlike prior results, our guarantee holds for every initialization and every horizon <span class="math">T</span>: the uniform averages of the AltGDA iterates satisfy an <span class="math">O(1/T)</span> duality-gap bound. Our proof is inspired by numerical results obtained using a novel performance estimation programming (PEP) framework for Lyapunov function search over compact convex sets. Additionally, we provide simple counterexamples showing that the last-iterate duality gap of AltGDA does not converge to zero.</p>
+                                <p>This justifies why averaging of iterates is indeed necessary to achieve an <span class="math">O(1/T)</span> rate. We have formalized and machine-checked our global ergodic convergence result in Lean 4.</p>
+                            </div>
+                        </li>
+                        <br>
+
+                        <li>
+                            Efficient Exploration for Iterative Nash Preference Optimization.
+                            <p>Tianlong Nan, Xiaopeng Li, Christian Kroer, Tianyi Lin.</p>
+                            <div class="arXiv">
+                                <a href="https://arxiv.org/abs/2606.01382" target="_blank" rel="noopener"><button>arXiv</button></a>
+                            </div>
+                            <div class="Code">
+                                <a href="https://github.com/ntlfi/ENPO" target="_blank" rel="noopener"><button>Code</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldEnpoAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldEnpoAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldEnpoAbstract" class="abstract-text" hidden>
+                                <p>Preference alignment is central to improving large language models (LLMs), but reward-based formulations can be restrictive when human preferences are non-transitive. Nash learning from human feedback (NLHF) addresses this limitation by modeling alignment as a preference game and seeking a Nash equilibrium. However, the learning-theoretic foundations of scalable NLHF remain limited: existing regret guarantees rely on explicit preference-model estimation and minimax oracles, whereas simpler iterative methods lack such guarantees. We study online iterative NLHF and identify exploration as a key obstacle.</p>
+                                <p>First, we show that standard iterative NLHF can incur an exponential dependence on the inverse KL-regularization parameter, demonstrating that implicit exploration through policy updates can be insufficient. We then propose Exploratory Nash Preference Optimization (ENPO), which combines a SFT-type regularization with adversarial policy exploration. ENPO eliminates this exponential dependence without requiring minimax oracles or explicit preference-model estimation. We further introduce <em>Bonus-Explorer ENPO</em> (BENPO), which uses additional oracles to achieve an <span class="math">O(log T)</span> regret bound.</p>
+                                <p>Finally, we develop <em>Direct ENPO</em> (DENPO), a practical variant of ENPO for fine-tuning LLMs. Experiments with <code>Llama-3-8B-Instruct</code> demonstrate consistent improvements over the evaluated RLHF and NLHF baselines across multiple benchmarks.</p>
+                            </div>
+                        </li>
+                        <br>
+
+                        <li>
+                            Two-Timescale Adaptive Memory for CTR Prediction under Temporal Distribution Shift
+                            <!-- <p>Tianlong Nan.</p> -->
+                            <p> </p>
+                            <div class="Manuscript">
+                                <a href="CTR-Prediction-Upload.pdf" target="_blank" rel="noopener"><button>Manuscript</button></a>
+                            </div>
+                            <div class="Code">
+                                <a href="https://github.com/ntlfi/two-timescale-adaptive-memory-for-ctr-prediction" target="_blank"><button>Code</button></a>
+                            </div>
+                            <div class="abstract">
+                                <button type="button" aria-controls="textFieldTtamAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldTtamAbstract')">Abstract</button>
+                            </div>
+                            <div id="textFieldTtamAbstract" class="abstract-text" hidden>
+                                <p>Click-through rate (CTR) prediction is important in online advertising and recommendation systems. CTR prediction can be challenging in practice, especially under temporal distribution shift. Existing methods often treat historical adaptation over model training and within-day information online updates separately, limiting their ability to exploit both heterogeneous historical data and newly available feedback. We propose Two-Timescale Adaptive Memory (TTAM), a causal framework that combines context-dependent historical weighting with adaptive-persistence online calibration. At the slower timescale, TTAM learns which historical horizons to use and how quickly their weights should change. At the faster timescale, it adapts calibration memory using delayed within-day feedback. We theoretically establish stability properties and regret guarantees for calibration aggregation. Experiments show that TTAM improves robustness across 14 controlled drift regimes and increases downstream bidding value. On the full Criteo and Avazu datasets, TTAM achieves strong performance against competing baselines under rolling-origin evaluation, supporting the value of adaptive memory at both timescales.</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="research-section">
@@ -678,25 +744,6 @@
                 <h2>Working Papers</h2>
                     <ul>
                         <li>
-                            Two-Timescale Adaptive Memory for CTR Prediction under Temporal Distribution Shift 
-                            <!-- <p>Tianlong Nan.</p> -->
-                            <p> </p>
-                            <div class="Manuscript">
-                                <a href="CTR-Prediction-Upload.pdf" target="_blank" rel="noopener"><button>Manuscript</button></a>
-                            </div>
-                            <div class="Code">
-                                <a href="https://github.com/ntlfi/two-timescale-adaptive-memory-for-ctr-prediction" target="_blank"><button>Code</button></a>
-                            </div>
-                            <div class="abstract">
-                                <button type="button" aria-controls="textFieldTtamAbstract" aria-expanded="false" onclick="toggleAbstract(this, 'textFieldTtamAbstract')">Abstract</button>
-                            </div>
-                            <div id="textFieldTtamAbstract" class="abstract-text" hidden>
-                                <p>Click-through rate (CTR) prediction is important in online advertising and recommendation systems. CTR prediction can be challenging in practice, especially under temporal distribution shift. Existing methods often treat historical adaptation over model training and within-day information online updates separately, limiting their ability to exploit both heterogeneous historical data and newly available feedback. We propose Two-Timescale Adaptive Memory (TTAM), a causal framework that combines context-dependent historical weighting with adaptive-persistence online calibration. At the slower timescale, TTAM learns which historical horizons to use and how quickly their weights should change. At the faster timescale, it adapts calibration memory using delayed within-day feedback. We theoretically establish stability properties and regret guarantees for calibration aggregation. Experiments show that TTAM improves robustness across 14 controlled drift regimes and increases downstream bidding value. On the full Criteo and Avazu datasets, TTAM achieves strong performance against competing baselines under rolling-origin evaluation, supporting the value of adaptive memory at both timescales.</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
                             Convergence of Extragradient SVRG for Variational Inequalities: Error Bounds and Increasing Iterate Averaging. 
                             <p>Tianlong Nan, Yuan Gao, Christian Kroer.</p>
                             <div class="arXiv">
@@ -728,7 +775,7 @@
         </main>
     </div>
     <footer>
-        <p>Last updated on Sep 28, 2026.</p>
+        <p>Last updated on Oct 2, 2026.</p>
     </footer>
 </body>
 </html>
